@@ -46,7 +46,7 @@ export const themeSlicer = createSlice({
       btnsBorderRadius: '0',
       btnsPosition: 'flex-start',
       btnsDirection: 'row-reverse',
-      btnsPadding: '3px',
+      btnsPadding: '4px',
       btnStyle: {
         shape: {
           width: '2.5rem',
@@ -68,13 +68,13 @@ export const themeSlicer = createSlice({
       btnsBorderRadius: '10',
       btnsPosition: 'flex-start',
       btnsDirection: 'row-reverse',
-      btnsPadding: '4px',
+      btnsPadding: '3px',
       btnStyle: {
         shape: {
-          width: '1.3rem',
-          margin: '4px',
+          width: '1.5rem',
+          margin: '2px',
           backgroundColor: {
-            close: 'transparent',
+            close: '#df4a16',
             min: 'transparent',
             res: 'transparent',
           },

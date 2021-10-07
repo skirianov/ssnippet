@@ -5,7 +5,7 @@ import EditorMain from '../editorMain/EditorMain';
 
 const Main = () => {
   return (
-    <Box display="flex" flexDir="column">
+    <Box>
       <EditorMain />
     </Box>
   )

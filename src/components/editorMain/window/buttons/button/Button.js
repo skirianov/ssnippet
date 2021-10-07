@@ -28,7 +28,7 @@ const Button = ({ type, content }) => {
   return (
     <Box
       w={theme.btnStyle.shape.width}
-      h="1.1rem"
+      h={theme.name === 'mac' ? "1.1rem" : "1.4rem"}
       m={theme.btnStyle.shape.margin}
       textAlign="center"
       fontSize="lg"
@@ -36,7 +36,7 @@ const Button = ({ type, content }) => {
       bg={bgColor}
       borderRadius={theme.btnStyle.shape.borderRadius}
     >
-      <Text mixBlendMode="difference" color="white">
+      <Text mixBlendMode={theme.name === 'lin' && type === 'close' ? null : "difference"} color="white">
         {content}
       </Text>
     </Box>

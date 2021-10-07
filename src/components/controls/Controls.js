@@ -5,44 +5,22 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionIcon,
-  AccordionPanel
+  AccordionPanel,
+  Text,
+  Button,
  } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeHeaderColor, changeTextAreaColor, changeMainColor, changeTokens } from './buttons/themeReducer';
 
 import RadioInput from './radioInput/radioInput';
-import Button from './buttons/Button';
-import ThemeControls from './themes/themeControls';
+import ThemePicker from './buttons/themePicker';
+import ThemeControls from './themes/colorControl';
 
 const Controls = () => {
-  const theme = useSelector(state => state.theme.value);
-  const [headerColor, setHeaderColor] = useState(theme.btnsBackgroundColor);
-  const [textAreaColor, setTextAreaColor] = useState(theme.textAreaBg);
-  const [mainBgColor, setMainBgColor] = useState(theme.mainBgColor);
-  const [tokens, setTokens] = useState(theme.tokens);
+  const [type, setType] = useState('header');
   const [radio, setRadio] = useState('comments');
 
-  const dispatch = useDispatch();
-
-  const handleHeaderChange = (color) => {
-    setHeaderColor(color.hex);
-    dispatch(changeHeaderColor(color.hex));
+  const handleColorPicker = (e) => {
+    setType(e.target.value);
   }
-
-  const handleTextAreaChange = (color) => {
-    setTextAreaColor(color.hex);
-    dispatch(changeTextAreaColor(color.hex));
-  }
-
-  const handleMainBgChange = (color) => {
-    setMainBgColor(color.hex);
-    dispatch(changeMainColor(color.hex));
-  }
-
-  const handleTokensChange = (color) => {
-    setTokens({...tokens, [radio]: color.hex})
-    dispatch(changeTokens(tokens));
-  }  
 
   return (
     <Box display='flex'>
@@ -56,10 +34,13 @@ const Controls = () => {
               <AccordionIcon />
             </AccordionButton>
           </h2>
-          <AccordionPanel pb={4}>
-            <Button text="win" />
-            <Button text="lin" />
-            <Button text="mac" />
+          <AccordionPanel pb={4} display="flex" flexDir="column">
+            <Text>Select theme</Text>
+            <Box display="flex" mt={2}>
+              <ThemePicker text="win" />
+              <ThemePicker text="lin" />
+              <ThemePicker text="mac" />
+            </Box>
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -71,12 +52,19 @@ const Controls = () => {
               <AccordionIcon />
             </AccordionButton>
           </h2>
-          <AccordionPanel pb={4} display="flex">
-            <ThemeControls color={headerColor} handler={handleHeaderChange} text={'header'} />
-            <ThemeControls color={textAreaColor} handler={handleTextAreaChange} />
-            <ThemeControls color={mainBgColor} handler={handleMainBgChange} />
-            <ThemeControls color={tokens[radio]} handler={handleTokensChange} />
-            <RadioInput radio={radio} handler={setRadio} />
+          <AccordionPanel pb={4} display="flex" justifyContent="space-between">
+            <Box m={4} display="flex" flexDir="column">
+              <Button colorScheme="pink" value="header" m={2} onClick={handleColorPicker}>Header</Button>
+              <Button colorScheme="pink" value="text" m={2} onClick={handleColorPicker}>Text Area</Button>
+              <Button colorScheme="pink" value="bg" m={2} onClick={handleColorPicker}>Background</Button>
+              <Button colorScheme="pink" value="tokens" m={2} onClick={handleColorPicker}>Tokens</Button>
+            </Box>
+            <Box display={type === "tokens" ? "block" : "none"}>
+              <RadioInput radio={radio} handler={setRadio} />
+            </Box>
+            <Box>
+              <ThemeControls type={type} radio={radio} />
+            </Box>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

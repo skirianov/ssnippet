@@ -8,9 +8,8 @@ import Buttons from './buttons/Buttons';
 
 const Window = () => {
   const theme = useSelector(state => state.theme.value);
-  console.log(theme.btnsBorderRadius);
   return (
-    <Box borderTopLeftRadius={theme.btnsBorderRadius} borderTopRightRadius={theme.btnsBorderRadius} bg={theme.textAreaBg}>
+    <Box borderRadius={theme.btnsBorderRadius} bg={theme.textAreaBg} boxShadow="dark-lg">
       <Buttons theme={theme} />
       <Box display="flex" w="100%" h="100%" bg="transparent">
         <LineNumber />

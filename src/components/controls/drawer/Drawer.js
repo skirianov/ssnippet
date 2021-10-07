@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Drawer,
   DrawerBody,
@@ -7,29 +7,31 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Box,
 } from "@chakra-ui/react"
 
 import Controls from '../Controls';
 import Settings from '../../settings/Settings';
+import { changeState } from './drawerReducer';
 
 const DrawerComponent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef()
+
+  const dispatch = useDispatch();
  
   return (
     <>
-    <Settings ref={btnRef} onClick={onOpen} />
+    <Settings ref={btnRef} onClick={() => { onOpen();  dispatch(changeState(isOpen))}} color={isOpen ? 'gray' : "#d53f8c"} />
     <Drawer
+        size="lg"
         isOpen={isOpen}
         onClose={onClose}
         finalFocusRef={btnRef}
-        placement="bottom"
+        placement="right"
         closeOnOverlayClick={false}
-        
       >
         <DrawerContent bg="#181d45" color="white">
-          <DrawerCloseButton bg="#d53f8c" color="white" size="lg" _active="#b83280"/>
+          <DrawerCloseButton bg="#d53f8c" color="white" size="lg" _active="#b83280" onClick={() => {onClose(); dispatch(changeState(isOpen))}}/>
           <DrawerHeader>Settings</DrawerHeader>
 
           <DrawerBody>

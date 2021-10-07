@@ -7,7 +7,7 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 
 const TextArea = () => {
-  const [code, setCode] = useState(`let a = null; //horosho \n //sdasdsa`);
+  const [code, setCode] = useState(`let a = null; //horosho`);
   const theme = useSelector(state => state.theme.value);
 
   return (
