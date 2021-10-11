@@ -9,7 +9,6 @@ import { changeToLin, changeToMac, changeToWin } from './themeReducer';
 
 const ThemePicker = ({text}) => {
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.theme.value);
 
   const btnObject = {
     action: text === 'win' ? changeToWin : text === 'lin' ? changeToLin : changeToMac,

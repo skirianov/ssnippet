@@ -4,7 +4,9 @@ const initialState = {
     value: {
       name: 'mac',
       mainBgColor: 'lightblue',
-      textAreaBg: '#282a36',
+      textAreaBg: 'black',
+      lineNumber: '#2A112A',
+      lineNumberChar: 'steelblue',
       btnsBackgroundColor: 'pink',
       btnsBorderRadius: '10',
       btnPosition: 'flex-start',
@@ -23,14 +25,22 @@ const initialState = {
         }
       },
       tokens: {
-        comments: '#6272a4',
-        punctuation: '#f8f8f2',
-        properties: '#126782',
-        strings: '#50fa7b',
-        operators: '#ffb86c',
-        keywords: '#ff79c6',
-        functions: '#ff5555',
-        variables: '#bdb2ff',
+        text: '#DEDEDE',
+        cursor: '#9F9F9F',
+        selBrWord: '#424242',
+        activeLine: '#2A2A2A',
+        keywords: 'tomato',
+        punctuation: '#fff',
+        constants: '#AE81FF',
+        function: '#66D9EF',
+        types: '#66D9EF',
+        entities: '#7AA6DA',
+        variable: '#FD971F',
+        string: '#E6DB74',
+        comment: '#75715E',
+        bracket: '#090',
+        operator: 'deeppink',
+        parameter: '#E78C45',
       }
     }
 }

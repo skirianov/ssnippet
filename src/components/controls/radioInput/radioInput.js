@@ -6,14 +6,14 @@ const RadioInput = ({radio, handler}) => {
   return (
     <RadioGroup onChange={value => handler(value)} value={radio}>
       <Stack direction="column">
-        <Radio value="comments">Comments</Radio>
+        <Radio value="comment">Comments</Radio>
         <Radio value="keywords">Keywords</Radio>
-        <Radio value="operators">Operators</Radio>
-        <Radio value="functions">Functions</Radio>
-        <Radio value="properties">Properties</Radio>
+        <Radio value="operator">Operators</Radio>
+        <Radio value="function">Functions</Radio>
+        <Radio value="entities">Entities</Radio>
         <Radio value="punctuation">Punctuation</Radio>
-        <Radio value="strings">Strings</Radio>
-        <Radio value="variables">Variables</Radio>
+        <Radio value="string">Strings</Radio>
+        <Radio value="variable">Variables</Radio>
       </Stack>
     </RadioGroup>
   )

@@ -1,126 +1,119 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Box } from '@chakra-ui/react';
-import Editor from 'react-simple-code-editor';
-import Prism from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
+import AceEditor from 'react-ace';
+import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-snippets";
+import "ace-builds/src-noconflict/ace";
 
 const TextArea = () => {
   const [code, setCode] = useState(`let a = null; //horosho`);
   const theme = useSelector(state => state.theme.value);
+  const [fontSize, setFontSize] = useState(22);
+  const [width, setWindowWidth] = useState(0);
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    setWindowWidth(width);
+
+    if (width < 768) {
+      setFontSize(15);
+    } else {
+      setFontSize(22);
+    }
+  }
+
+  useEffect(() => {
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+  }, []);
+
 
   return (
-    <Box 
+    <Box
+      width="100%"
+      padding={2}
       sx={{
-        outline: 'none',
-        ".comment": {
-          color: theme.tokens.comments,
+        ".ace_active-line": {
+          backgroundColor: `${theme.tokens.activeLine} !important`,
         },
-        ".prolog": {
-          color: theme.tokens.comments,
+        ".ace_gutter": {
+          backgroundColor: 'transparent !important',
+          color: theme.lineNumberChar,
         },
-        ".doctype": {
-          color: theme.tokens.comments,
+        ".ace_gutter-cell": {
+          paddingRight: '10px'
         },
-        ".cdata": {
-          color: theme.tokens.comments,
+        ".ace_print-margin": {
+          width: 0,
         },
-        ".punctuation": {
-          color: theme.tokens.punctuation,
+        ".ace_gutter-active-line": {
+          backgroundColor: `${theme.lineNumber} !important`,
+          color: theme.lineNumberChar,
         },
-        ".property": {
-          color: theme.tokens.properties,
+        ".ace_mobile-menu": {
+          display: 'none',
         },
-        ".tag": {
-          color: theme.tokens.properties,
+        ".ace_cursor": {
+          color: theme.tokens.cursor,
         },
-        ".boolean": {
-          color: theme.tokens.properties,
+        ".ace_selection": {
+          backgroundColor: `${theme.tokens.selBrWord} !important`,
         },
-        ".number": {
-          color: theme.tokens.properties,
+        ".ace_bracket": {
+          backgroundColor: theme.tokens.bracket,
         },
-        ".constant": {
-          color: theme.tokens.properties,
-        },
-        ".symbol": {
-          color: theme.tokens.properties,
-        },
-        ".deleted": {
-          color: theme.tokens.properties,
-        },
-        ".function": {
-          color: theme.tokens.functions,
-        },
-        ".class-name": {
-          color: theme.tokens.functions,
-        },
-        ".keyword": {
+        ".ace_keyword": {
           color: theme.tokens.keywords,
         },
-        ".atrule": {
+        ".ace_meta": {
           color: theme.tokens.keywords,
         },
-        ".attr-value": {
+        ".ace_storage": {
           color: theme.tokens.keywords,
         },
-        ".operator": {
-          color: theme.tokens.operators,
+        ".ace_type": {
+          color: theme.tokens.keywords,
         },
-        ".entity": {
-          color: theme.tokens.operators,
+        ".ace_paren": {
+          color: theme.tokens.selBrWord,
         },
-        ".url": {
-          color: theme.tokens.operators,
+        ".ace_entity": {
+          color: theme.tokens.entities,
+        },
+        ".ace_comment": {
+          color: theme.tokens.comment,
         },
         ".string": {
-          color: theme.tokens.strings,
+          color: theme.tokens.string,
         },
-        ".char": {
-          color: theme.tokens.strings,
+        ".ace_operator": {
+          color: theme.tokens.operator,
         },
-        ".builtin": {
-          color: theme.tokens.strings,
-        },
-        ".selector": {
-          color: theme.tokens.strings,
-        },
-        ".attr-name": {
-          color: theme.tokens.strings,
-        },
-        ".variable": {
-          color: theme.tokens.variables,
-        },
-        ".important": {
-          color: theme.tokens.variables,
-        },
-        ".regex": {
-          color: theme.tokens.variables,
-        },
-        "#textArea": {
-          outline: 'none',
-        }
+        
+
       }}
-      color="#f8f8f2"
     >
-      <Editor
-        value={code}
-        onValueChange={code => setCode(code)}
-        highlight={text => Prism.highlight(text, Prism.languages.js)}
-        padding={34}
-        textareaId="textArea"
+      <AceEditor
+        mode="javascript"
+        theme={null}
+        onChange={code => setCode(code)}
+        name="textArea"
+        fontSize={fontSize}
+        editorProps={{ $blockScrolling: true }}
+        enableBasicAutocompletion={true}
+        enableLiveAutocompletion={true}
+        width="98%"
+        placeholder="Your awesome code snippet here <3"
+        wrapEnabled={true}
         style={{
-          position: 'relative',
           backgroundColor: 'transparent',
-          fontSize: 22,
-          fontFamily: 'Open Sans',
-          fontWeight: 600,
-          outline: 'none!important',
-          height: '100%',
-          width: '62vw',
+          fontFamily: 'monospace',
+          fontWeight: 500,
+          color: theme.tokens.text,
         }}
-        />
+      />
     </Box>
   )
 }

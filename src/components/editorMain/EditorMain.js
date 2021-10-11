@@ -6,10 +6,9 @@ import Window from './window/Window';
 
 const EditorMain = () => {
   const theme = useSelector(state => state.theme.value);
-  const drawerState = useSelector(state => state.drawer.value);
 
   return (
-    <Box bg={theme.mainBgColor} w={{ base: "90%", md: "75%", lg: "55%"}} mx={{ base: "auto", lg: drawerState ? "auto" : 24}} p={[4, 8, 12]} style={{ transition: "margin 1100ms"}}>
+    <Box bg={theme.mainBgColor} w={{ base: "90%", md: "75%", lg: "65%"}} mx="auto" p={[4, 8, 12]}>
       <Window />
     </Box>
   )
