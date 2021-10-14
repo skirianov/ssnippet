@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
@@ -10,25 +10,25 @@ const Button = ({ type, content }) => {
   }
 
   let bgColor;
-  
+
   switch (type) {
-    case "close":
+    case 'close':
       bgColor = theme.btnStyle.shape.backgroundColor.close;
       break;
-    case "minimize":
+    case 'minimize':
       bgColor = theme.btnStyle.shape.backgroundColor.min;
       break;
-    case "resize":
+    case 'resize':
       bgColor = theme.btnStyle.shape.backgroundColor.res;
       break;
     default:
       bgColor = null;
-  }  
+  }
 
   return (
     <Box
       w={theme.btnStyle.shape.width}
-      h={theme.name === 'mac' ? "1.1rem" : "1.4rem"}
+      h={theme.name === 'mac' ? '1.1rem' : '1.4rem'}
       m={theme.btnStyle.shape.margin}
       textAlign="center"
       fontSize="lg"
@@ -36,11 +36,16 @@ const Button = ({ type, content }) => {
       bg={bgColor}
       borderRadius={theme.btnStyle.shape.borderRadius}
     >
-      <Text mixBlendMode={theme.name === 'lin' && type === 'close' ? null : "difference"} color="white">
+      <Text
+        mixBlendMode={
+          theme.name === 'lin' && type === 'close' ? null : 'difference'
+        }
+        color="white"
+      >
         {content}
       </Text>
     </Box>
-  )
-}
+  );
+};
 
 export default Button;

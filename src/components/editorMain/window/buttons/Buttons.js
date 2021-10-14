@@ -1,19 +1,18 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
-import { IoCloseOutline } from "react-icons/io5";
-import { MdMinimize } from "react-icons/md";
-import { MdOutlineCropSquare } from "react-icons/md";
-import { MdOutlineClose } from "react-icons/md";
+import { MdMinimize } from 'react-icons/md';
+import { MdOutlineCropSquare } from 'react-icons/md';
+import { MdOutlineClose } from 'react-icons/md';
 import Button from './button/Button';
 
-const Buttons = ({theme}) => {
+const Buttons = ({ theme }) => {
   const {
     btnsPosition,
     btnsDirection,
     btnsBackgroundColor,
     btnsBorderRadius,
     btnsPadding,
-   } = theme;
+  } = theme;
 
   return (
     <Box
@@ -29,7 +28,7 @@ const Buttons = ({theme}) => {
       <Button type="resize" content={<MdOutlineCropSquare />} />
       <Button type="minimize" content={<MdMinimize />} />
     </Box>
-  )
-}
+  );
+};
 
 export default Buttons;

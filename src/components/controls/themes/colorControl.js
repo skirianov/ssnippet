@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChromePicker } from 'react-color';
-import { 
-  Box,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 
-import { changeHeaderColor, changeTextAreaColor, changeMainColor, changeTokens } from '../buttons/themeReducer';
-
+import {
+  changeHeaderColor,
+  changeTextAreaColor,
+  changeMainColor,
+  changeTokens,
+} from '../buttons/themeReducer';
 
 const ThemeControls = ({ type, radio }) => {
   const theme = useSelector(state => state.theme.value);
@@ -18,50 +19,50 @@ const ThemeControls = ({ type, radio }) => {
 
   const dispatch = useDispatch();
 
-  const handleHeaderChange = (color) => {
+  const handleHeaderChange = color => {
     setHeaderColor(color.hex);
     dispatch(changeHeaderColor(color.hex));
-  }
+  };
 
-  const handleTextAreaChange = (color) => {
+  const handleTextAreaChange = color => {
     setTextAreaColor(color.hex);
     dispatch(changeTextAreaColor(color.hex));
-  }
+  };
 
-  const handleMainBgChange = (color) => {
+  const handleMainBgChange = color => {
     setMainBgColor(color.hex);
     dispatch(changeMainColor(color.hex));
-  }
+  };
 
-  const handleTokensChange = (color) => {
-    setTokens({...tokens, [radio]: color.hex})
+  const handleTokensChange = color => {
+    setTokens({ ...tokens, [radio]: color.hex });
     dispatch(changeTokens(tokens));
-  }  
+  };
 
   let text;
   let color;
   let action;
 
   switch (type) {
-    case "header":
+    case 'header':
       action = handleHeaderChange;
       color = headerColor;
-      text = "Header"
+      text = 'Header';
       break;
-    case "text":
+    case 'text':
       action = handleTextAreaChange;
       color = textAreaColor;
-      text = "Text Area"
+      text = 'Text Area';
       break;
-    case "bg":
+    case 'bg':
       action = handleMainBgChange;
       color = mainBgColor;
-      text = "Background";
+      text = 'Background';
       break;
-    case "tokens":
+    case 'tokens':
       action = handleTokensChange;
       color = tokens[radio];
-      text = "Tokens"
+      text = 'Tokens';
       break;
     default:
       return null;
@@ -72,7 +73,7 @@ const ThemeControls = ({ type, radio }) => {
       <Text textAlign="center">{text}</Text>
       <ChromePicker disableAlpha color={color} onChange={action} />
     </Box>
-  )
-}
+  );
+};
 
 export default ThemeControls;

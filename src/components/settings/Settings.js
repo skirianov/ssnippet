@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@chakra-ui/react';
-import { IoSettingsOutline } from "react-icons/io5";
-
+import { IoSettingsOutline } from 'react-icons/io5';
 
 const Settings = ({ ref, onClick, color }) => {
-
   return (
     <Button
-    position="absolute"
+      position="absolute"
       ref={ref}
       onClick={onClick}
       leftIcon={<IoSettingsOutline size="1.7em" />}
@@ -16,11 +14,11 @@ const Settings = ({ ref, onClick, color }) => {
       variant="solid"
       w={32}
       mt={4}
-      left={{ base: "38%", md:"66%" }}
+      left={{ base: '38%', md: '66%' }}
     >
       Settings
     </Button>
-  )
-}
+  );
+};
 
 export default Settings;
