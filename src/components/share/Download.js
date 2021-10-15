@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import domtoimage from 'dom-to-image';
 import { Button } from '@chakra-ui/react';
 import { saveAs } from 'file-saver';

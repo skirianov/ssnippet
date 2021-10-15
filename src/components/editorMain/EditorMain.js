@@ -8,8 +8,6 @@ const EditorMain = () => {
   const theme = useSelector(state => state.theme.value);
   const drawer = useSelector(state => state.drawer.value);
 
-  console.log(drawer);
-
   return (
     <Box
       id="ssnippet"

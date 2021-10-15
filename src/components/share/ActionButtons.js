@@ -3,10 +3,6 @@ import { useDispatch } from 'react-redux';
 import { 
   Box,
 } from '@chakra-ui/react';
-import {
-  TwitterShareButton,
-  TwitterIcon,
-} from 'react-share';
 
 import Download from './Download';
 import Settings from './Settings';
@@ -23,7 +19,7 @@ const ActionButtons = ({ btnRef, onOpen, isOpen}) => {
       mt={4}
     >
       <Download color={isOpen ? 'gray' : "#bed04a"}/>
-      <Settings ref={btnRef} onClick={() => { onOpen();  dispatch(changeState(isOpen))}} color={isOpen ? 'gray' : "#d53f8c"} />
+      <Settings btnRef={btnRef} onClick={() => { onOpen();  dispatch(changeState(isOpen))}} color={isOpen ? 'gray' : "#d53f8c"} />
     </Box>
   )
 }

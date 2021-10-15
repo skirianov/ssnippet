@@ -2,10 +2,10 @@ import React from 'react';
 import { Button } from '@chakra-ui/react';
 import { IoSettingsOutline } from 'react-icons/io5';
 
-const Settings = ({ ref, onClick, color }) => {
+const Settings = ({ btnRef, onClick, color }) => {
   return (
     <Button
-      ref={ref}
+      ref={btnRef}
       onClick={onClick}
       leftIcon={<IoSettingsOutline size="1.7em" />}
       bg={color}

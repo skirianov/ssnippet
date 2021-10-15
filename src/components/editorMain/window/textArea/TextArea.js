@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Box } from '@chakra-ui/react';
 import AceEditor from 'react-ace';
 import hljs from 'highlight.js';
+import "ace-builds/webpack-resolver";
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/src-noconflict/mode-abap';
 import 'ace-builds/src-noconflict/mode-assembly_x86';
@@ -67,7 +68,7 @@ const TextArea = () => {
   const theme = useSelector(state => state.theme.value);
   const [code, setCode] = useState(null);
   const [mode, setMode] = useState('javascript');
-  const [height, setHeight] = useState(window.innerHeight);
+  const height = window.innerHeight;
   const [fontSize, setFontSize] = useState(22);
 
   const updateDimensions = () => {
@@ -83,7 +84,13 @@ const TextArea = () => {
   useEffect(() => {
     if (code) {
       let language = (hljs.highlightAuto(code, LANGUAGES));
-      setMode(language.language);
+      if (language.language === 'c' || language.language === 'cpp') {
+        setMode('c_cpp');
+      } else if (language.language === 'bash'){
+        setMode('batchfile');
+      } else {
+        setMode(language.language);
+      }
     }
   }, [code, mode]);
 
@@ -93,10 +100,10 @@ const TextArea = () => {
   }, []);
 
   return (
-    <Box width="100%" padding={2} sx={sx(theme)} h={height * 0.5}>
+    <Box width="100%" padding={2} sx={sx(theme)} h={height * 0.4}>
       <AceEditor
         onChange={code => setCode(code)}
-        mode={mode}
+        mode={mode ? mode : "javascript"}
         theme={null}
         name="textArea"
         fontSize={fontSize}
