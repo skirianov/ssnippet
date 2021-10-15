@@ -11,6 +11,7 @@ import {
 
 import Controls from '../Controls';
 import Settings from '../../settings/Settings';
+import Share from '../../share/Share';
 import { changeState } from './drawerReducer';
 
 const DrawerComponent = () => {
@@ -22,6 +23,7 @@ const DrawerComponent = () => {
   return (
     <>
     <Settings ref={btnRef} onClick={() => { onOpen();  dispatch(changeState(isOpen))}} color={isOpen ? 'gray' : "#d53f8c"} />
+    <Share />
     <Drawer
         size="lg"
         isOpen={isOpen}

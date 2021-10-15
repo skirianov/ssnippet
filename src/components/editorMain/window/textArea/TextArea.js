@@ -2,73 +2,72 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Box } from '@chakra-ui/react';
 import AceEditor from 'react-ace';
+import hljs from 'highlight.js';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import 'ace-builds/src-noconflict/mode-abap';
+import 'ace-builds/src-noconflict/mode-assembly_x86';
+import 'ace-builds/src-noconflict/mode-c_cpp';
+import 'ace-builds/src-noconflict/mode-csharp';
+import 'ace-builds/src-noconflict/mode-clojure';
+import 'ace-builds/src-noconflict/mode-cobol';
+import 'ace-builds/src-noconflict/mode-d';
+import 'ace-builds/src-noconflict/mode-dart';
+import 'ace-builds/src-noconflict/mode-dockerfile';
+import 'ace-builds/src-noconflict/mode-elixir';
+import 'ace-builds/src-noconflict/mode-erlang';
+import 'ace-builds/src-noconflict/mode-fortran';
+import 'ace-builds/src-noconflict/mode-golang';
+import 'ace-builds/src-noconflict/mode-gherkin';
+import 'ace-builds/src-noconflict/mode-haml';
+import 'ace-builds/src-noconflict/mode-haskell';
+import 'ace-builds/src-noconflict/mode-java';
+import 'ace-builds/src-noconflict/mode-json';
+import 'ace-builds/src-noconflict/mode-julia';
+import 'ace-builds/src-noconflict/mode-kotlin';
+import 'ace-builds/src-noconflict/mode-latex';
+import 'ace-builds/src-noconflict/mode-lua';
+import 'ace-builds/src-noconflict/mode-markdown';
+import 'ace-builds/src-noconflict/mode-matlab';
+import 'ace-builds/src-noconflict/mode-mysql';
+import 'ace-builds/src-noconflict/mode-nginx';
+import 'ace-builds/src-noconflict/mode-nim';
+import 'ace-builds/src-noconflict/mode-nix';
+import 'ace-builds/src-noconflict/mode-objectivec';
+import 'ace-builds/src-noconflict/mode-pascal';
+import 'ace-builds/src-noconflict/mode-perl';
+import 'ace-builds/src-noconflict/mode-php';
+import 'ace-builds/src-noconflict/mode-php_laravel_blade';
+import 'ace-builds/src-noconflict/mode-powershell';
+import 'ace-builds/src-noconflict/mode-qml';
+import 'ace-builds/src-noconflict/mode-r';
+import 'ace-builds/src-noconflict/mode-rust';
+import 'ace-builds/src-noconflict/mode-ruby';
+import 'ace-builds/src-noconflict/mode-sass';
+import 'ace-builds/src-noconflict/mode-scala';
+import 'ace-builds/src-noconflict/mode-scheme';
+import 'ace-builds/src-noconflict/mode-scss';
+import 'ace-builds/src-noconflict/mode-sql';
+import 'ace-builds/src-noconflict/mode-stylus';
+import 'ace-builds/src-noconflict/mode-svg';
+import 'ace-builds/src-noconflict/mode-swift';
+import 'ace-builds/src-noconflict/mode-typescript';
+import 'ace-builds/src-noconflict/mode-vbscript';
+import 'ace-builds/src-noconflict/mode-xml';
+import 'ace-builds/src-noconflict/mode-yaml';
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/mode-snippets';
-import 'ace-builds/src-noconflict/ace';
+import 'ace-builds/src-noconflict/mode-python';
+import 'ace-builds/src-noconflict/mode-css';
+import 'ace-builds/src-noconflict/mode-html';
+import 'ace-builds/src-noconflict/mode-django';
+
+import sx from './selectors';
+import { LANGUAGES } from './LANGUAGES';
 
 const TextArea = () => {
   const theme = useSelector(state => state.theme.value);
+  const [code, setCode] = useState(null);
+  const [mode, setMode] = useState('javascript');
   const [fontSize, setFontSize] = useState(22);
-
-  const sx = {
-    '.ace_active-line': {
-      backgroundColor: `${theme.tokens.activeLine} !important`,
-    },
-    '.ace_gutter': {
-      backgroundColor: 'transparent !important',
-      color: theme.lineNumberChar,
-    },
-    '.ace_gutter-cell': {
-      paddingRight: '10px',
-    },
-    '.ace_print-margin': {
-      width: 0,
-    },
-    '.ace_gutter-active-line': {
-      backgroundColor: `${theme.lineNumber} !important`,
-      color: theme.lineNumberChar,
-    },
-    '.ace_mobile-menu': {
-      display: 'none',
-    },
-    '.ace_cursor': {
-      color: theme.tokens.cursor,
-    },
-    '.ace_selection': {
-      backgroundColor: `${theme.tokens.selBrWord} !important`,
-    },
-    '.ace_bracket': {
-      backgroundColor: theme.tokens.bracket,
-    },
-    '.ace_keyword': {
-      color: theme.tokens.keywords,
-    },
-    '.ace_meta': {
-      color: theme.tokens.keywords,
-    },
-    '.ace_storage': {
-      color: theme.tokens.keywords,
-    },
-    '.ace_type': {
-      color: theme.tokens.keywords,
-    },
-    '.ace_paren': {
-      color: theme.tokens.selBrWord,
-    },
-    '.ace_entity': {
-      color: theme.tokens.entities,
-    },
-    '.ace_comment': {
-      color: theme.tokens.comment,
-    },
-    '.string': {
-      color: theme.tokens.string,
-    },
-    '.ace_operator': {
-      color: theme.tokens.operator,
-    },
-  };
 
   const updateDimensions = () => {
     const width = window.innerWidth;
@@ -81,18 +80,25 @@ const TextArea = () => {
   };
 
   useEffect(() => {
+    if (code) {
+      let language = (hljs.highlightAuto(code, LANGUAGES));
+      setMode(language.language);
+    }
+  }, [code, mode]);
+
+  useEffect(() => {
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
   }, []);
 
   return (
-    <Box width="100%" padding={2} sx={sx}>
+    <Box width="100%" padding={2} sx={sx(theme)}>
       <AceEditor
-        mode="javascript"
+        onChange={code => setCode(code)}
+        mode={mode}
         theme={null}
         name="textArea"
         fontSize={fontSize}
-        editorProps={{ $blockScrolling: true }}
         enableBasicAutocompletion={true}
         enableLiveAutocompletion={true}
         width="98%"

@@ -13,6 +13,8 @@
     "@testing-library/react": "^10.2.1",
     "@testing-library/user-event": "^12.0.2",
     "ace-builds": "^1.4.13",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5",
     "framer-motion": "^4.0.0",
     "highlight.js": "^11.2.0",
     "prismjs": "^1.25.0",

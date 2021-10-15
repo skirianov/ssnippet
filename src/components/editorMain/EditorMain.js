@@ -9,6 +9,7 @@ const EditorMain = () => {
 
   return (
     <Box
+      id="ssnippet"
       bg={theme.mainBgColor}
       w={{ base: '90%', md: '75%', lg: '65%' }}
       mx="auto"
