@@ -1,21 +1,29 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Image } from '@chakra-ui/react';
+import Snake from '../../assets/snake.png';
 
 const Header = () => {
   return (
-    <Box m={[2, 4, 8]}>
-      <Text fontSize={['xl', '2xl', '4xl']} textAlign="center" color="white">
-        ssnippet🐍
+    <>
+    <Box m={1} display="flex" justifyContent="center" alignItems="center">
+      <Text fontSize={['3xl', '4xl', '6xl']} textAlign="center" color="white">
+        ssnippet
       </Text>
+      <Image src={Snake} w={[6, 8 ,12]} ml={2} />
+    </Box>
+    <Box>
+      
       <Text
         color="white"
         textAlign="center"
-        mt={[4, 6, 8]}
-        fontSize={['xl', '2xl', '4xl']}
+        mt={[1, 2, 2]}
+        mb={[4]}
+        fontSize={['lg', 'xl', '2xl']}
       >
         code it. ssnipp it. sshare!
       </Text>
     </Box>
+    </>
   );
 };
 

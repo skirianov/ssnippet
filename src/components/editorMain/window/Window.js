@@ -8,13 +8,19 @@ import Buttons from './buttons/Buttons';
 const Window = () => {
   const theme = useSelector(state => state.theme.value);
   return (
-    <Box borderRadius={theme.btnsBorderRadius} bg={theme.textAreaBg} boxShadow="dark-lg" display="flex" flexDir="column">
+    <Box
+      borderRadius={theme.btnsBorderRadius+5}
+      bg={theme.textAreaBg}
+      display="flex"
+      flexDir="column"
+      shadow="dark-lg"
+    >
       <Buttons theme={theme} />
       <Box display="flex" w="100%" bg="transparent">
         <TextArea />
       </Box>
     </Box>
-  )
-}
+  );
+};
 
 export default Window;

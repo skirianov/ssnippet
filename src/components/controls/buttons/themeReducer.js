@@ -5,21 +5,21 @@ const initialState = {
       name: 'mac',
       mainBgColor: 'lightblue',
       textAreaBg: 'black',
-      lineNumber: '#2A112A',
+      lineNumber: 'rgba(0,0,0,0.1)',
       lineNumberChar: 'steelblue',
-      btnsBackgroundColor: 'pink',
-      btnsBorderRadius: '10',
+      btnsBackgroundColor: 'linear-gradient(#e5e5e5, #cecece)',
+      btnsBorderRadius: 15,
       btnPosition: 'flex-start',
       btnsDirection: 'flex-row',
-      btnsPadding: '1px',
+      btnsPadding: 2,
       btnStyle: {
         shape: {
-          width: '1.1rem',
-          margin: '0.2rem',
+          width: '1rem',
+          margin: '0.3rem',
           backgroundColor: {
             close: '#ff605c',
-            min: '#ffbd44',
-            res: '#00ca4e',
+            min: '#00ca4e',
+            res: '#ff924d',
           },
           borderRadius: '100%',
         }
@@ -28,19 +28,18 @@ const initialState = {
         text: '#DEDEDE',
         cursor: '#9F9F9F',
         selBrWord: '#424242',
-        activeLine: '#2A2A2A',
+        activeLine: 'rgba(255,255,255,0.1)',
         keywords: 'tomato',
-        punctuation: '#fff',
         constants: '#AE81FF',
         function: '#66D9EF',
         types: '#66D9EF',
-        entities: '#7AA6DA',
         variable: '#FD971F',
         string: '#E6DB74',
         comment: '#75715E',
         bracket: '#090',
         operator: 'deeppink',
         parameter: '#E78C45',
+        number: '#E78C45',
       }
     }
 }
@@ -53,10 +52,10 @@ export const themeSlicer = createSlice({
     state.value = {
       ...state.value,
       name: 'win',
-      btnsBorderRadius: '0',
+      btnsBorderRadius: 0,
       btnsPosition: 'flex-start',
       btnsDirection: 'row-reverse',
-      btnsPadding: '4px',
+      btnsPadding: 2,
       btnStyle: {
         shape: {
           width: '2.5rem',
@@ -75,13 +74,13 @@ export const themeSlicer = createSlice({
     state.value = {
       ...state.value,
       name: 'lin',
-      btnsBorderRadius: '10',
+      btnsBorderRadius: 10,
       btnsPosition: 'flex-start',
       btnsDirection: 'row-reverse',
-      btnsPadding: '3px',
+      btnsPadding: 2,
       btnStyle: {
         shape: {
-          width: '1.5rem',
+          width: '1.4rem',
           margin: '2px',
           backgroundColor: {
             close: '#df4a16',
@@ -97,18 +96,18 @@ export const themeSlicer = createSlice({
     state.value = {
       ...state.value,
       name: 'mac',
-      btnsBorderRadius: '10',
+      btnsBorderRadius: 10,
       btnPosition: 'flex-start',
       btnsDirection: 'flex-row',
-      btnsPadding: '1px',
+      btnsPadding: 2,
       btnStyle: {
         shape: {
-          width: '1.1rem',
-          margin: '0.2rem',
+          width: '1rem',
+          margin: '0.3rem',
           backgroundColor: {
             close: '#ff605c',
-            min: '#ffbd44',
-            res: '#00ca4e',
+            min: '#00ca4e',
+            res: '#ff924d',
           },
           borderRadius: '100%',
         }

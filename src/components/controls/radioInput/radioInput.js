@@ -10,10 +10,10 @@ const RadioInput = ({radio, handler}) => {
         <Radio value="keywords">Keywords</Radio>
         <Radio value="operator">Operators</Radio>
         <Radio value="function">Functions</Radio>
-        <Radio value="entities">Entities</Radio>
-        <Radio value="punctuation">Punctuation</Radio>
         <Radio value="string">Strings</Radio>
         <Radio value="variable">Variables</Radio>
+        <Radio value="parameter">Parameters</Radio>
+        <Radio value="number">Numbers</Radio>
       </Stack>
     </RadioGroup>
   )

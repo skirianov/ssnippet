@@ -28,11 +28,11 @@ const Button = ({ type, content }) => {
   return (
     <Box
       w={theme.btnStyle.shape.width}
-      h={theme.name === 'mac' ? '1.1rem' : '1.4rem'}
+      h={theme.name === 'mac' ? '1rem' : '1.4rem'}
       m={theme.btnStyle.shape.margin}
-      textAlign="center"
-      fontSize="lg"
-      p="3px"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       bg={bgColor}
       borderRadius={theme.btnStyle.shape.borderRadius}
     >
