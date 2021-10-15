@@ -64,6 +64,12 @@
     },
     '.ace_parameter': {
       color: `${theme.tokens.parameter} !important`
+    },
+    '.ace_numberic': {
+      color: `${theme.tokens.number} !important`
+    },
+    '.ace_constant': {
+      color: `${theme.tokens.number} !important`
     }
   }};
 

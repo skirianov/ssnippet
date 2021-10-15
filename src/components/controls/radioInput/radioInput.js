@@ -13,6 +13,7 @@ const RadioInput = ({radio, handler}) => {
         <Radio value="string">Strings</Radio>
         <Radio value="variable">Variables</Radio>
         <Radio value="parameter">Parameters</Radio>
+        <Radio value="number">Numbers</Radio>
       </Stack>
     </RadioGroup>
   )

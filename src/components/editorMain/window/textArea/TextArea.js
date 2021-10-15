@@ -67,6 +67,7 @@ const TextArea = () => {
   const theme = useSelector(state => state.theme.value);
   const [code, setCode] = useState(null);
   const [mode, setMode] = useState('javascript');
+  const [height, setHeight] = useState(window.innerHeight);
   const [fontSize, setFontSize] = useState(22);
 
   const updateDimensions = () => {
@@ -92,7 +93,7 @@ const TextArea = () => {
   }, []);
 
   return (
-    <Box width="100%" padding={2} sx={sx(theme)}>
+    <Box width="100%" padding={2} sx={sx(theme)} h={height * 0.5}>
       <AceEditor
         onChange={code => setCode(code)}
         mode={mode}
@@ -102,11 +103,13 @@ const TextArea = () => {
         enableBasicAutocompletion={true}
         enableLiveAutocompletion={true}
         width="98%"
+        height="100%"
         placeholder="Your awesome code snippet here <3"
         wrapEnabled={true}
         style={{
           backgroundColor: 'transparent',
           fontFamily: 'monospace',
+          fontSize:"20px",
           fontWeight: 500,
           color: theme.tokens.text,
         }}

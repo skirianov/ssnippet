@@ -6,30 +6,22 @@ import {
   DrawerHeader,
   DrawerContent,
   DrawerCloseButton,
-  useDisclosure,
 } from "@chakra-ui/react"
+import { isMobile } from 'react-device-detect';
 
 import Controls from '../Controls';
-import Settings from '../../settings/Settings';
-import Share from '../../share/Share';
 import { changeState } from './drawerReducer';
 
-const DrawerComponent = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef()
-
+const DrawerComponent = ({ isOpen, onOpen, onClose, btnRef }) => {
   const dispatch = useDispatch();
- 
   return (
     <>
-    <Settings ref={btnRef} onClick={() => { onOpen();  dispatch(changeState(isOpen))}} color={isOpen ? 'gray' : "#d53f8c"} />
-    <Share />
     <Drawer
-        size="lg"
+        size="md"
         isOpen={isOpen}
         onClose={onClose}
         finalFocusRef={btnRef}
-        placement="right"
+        placement={isMobile ? "bottom" : "right"}
         closeOnOverlayClick={false}
       >
         <DrawerContent bg="#181d45" color="white">
@@ -37,7 +29,7 @@ const DrawerComponent = () => {
           <DrawerHeader>Settings</DrawerHeader>
 
           <DrawerBody>
-            <Controls />
+            <Controls isMobile={isMobile} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

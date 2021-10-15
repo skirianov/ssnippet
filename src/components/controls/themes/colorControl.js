@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ChromePicker } from 'react-color';
+import { ChromePicker, SliderPicker } from 'react-color';
 import { Box, Text } from '@chakra-ui/react';
+import { isMobile } from 'react-device-detect';
 
 import {
   changeHeaderColor,
@@ -69,9 +70,11 @@ const ThemeControls = ({ type, radio }) => {
   }
 
   return (
-    <Box>
+    <Box w="80%" m="auto">
       <Text textAlign="center">{text}</Text>
-      <ChromePicker disableAlpha color={color} onChange={action} />
+      {isMobile
+        ? <SliderPicker color={color} onChange={action} />
+        : <ChromePicker disableAlpha color={color} onChange={action} />}
     </Box>
   );
 };

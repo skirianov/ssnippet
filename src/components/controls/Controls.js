@@ -14,7 +14,7 @@ import RadioInput from './radioInput/radioInput';
 import ThemePicker from './buttons/themePicker';
 import ThemeControls from './themes/colorControl';
 
-const Controls = () => {
+const Controls = ({ isMobile }) => {
   const [type, setType] = useState('header');
   const [radio, setRadio] = useState('comments');
 
@@ -29,14 +29,14 @@ const Controls = () => {
           <h2>
             <AccordionButton bg="rgba(0,0,0,0.5)" _hover fontSize="xl">
               <Box flex="1" textAlign="left">
-                Themes
+                Window style
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4} display="flex" flexDir="column">
-            <Text>Select theme</Text>
-            <Box display="flex" mt={2}>
+            <Text>Select style</Text>
+            <Box display="flex" mt={2} flexDir="column">
               <ThemePicker text="win" />
               <ThemePicker text="lin" />
               <ThemePicker text="mac" />
@@ -52,12 +52,12 @@ const Controls = () => {
               <AccordionIcon />
             </AccordionButton>
           </h2>
-          <AccordionPanel pb={4} display="flex" justifyContent="space-between">
-            <Box m={4} display="flex" flexDir="column">
-              <Button colorScheme="pink" value="header" m={2} onClick={handleColorPicker}>Header</Button>
-              <Button colorScheme="pink" value="text" m={2} onClick={handleColorPicker}>Text Area</Button>
-              <Button colorScheme="pink" value="bg" m={2} onClick={handleColorPicker}>Background</Button>
-              <Button colorScheme="pink" value="tokens" m={2} onClick={handleColorPicker}>Tokens</Button>
+          <AccordionPanel pb={4} display="flex" flexDir="column" justifyContent="space-between">
+            <Box my={2} display="flex" flexDir="row">
+              <Button colorScheme="pink" value="header"  onClick={handleColorPicker} size={isMobile ? "xs" : "md"}  >Header</Button>
+              <Button colorScheme="pink" value="text" mx={1} onClick={handleColorPicker} size={isMobile ? "xs" : "md"}>Text Area</Button>
+              <Button colorScheme="pink" value="bg"  onClick={handleColorPicker} size={isMobile ? "xs" : "md"}>Background</Button>
+              <Button colorScheme="pink" value="tokens" mx={1} onClick={handleColorPicker} size={isMobile ? "xs" : "md"}>Tokens</Button>
             </Box>
             <Box display={type === "tokens" ? "block" : "none"}>
               <RadioInput radio={radio} handler={setRadio} />

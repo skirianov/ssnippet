@@ -17,9 +17,16 @@ const ThemePicker = ({ text }) => {
   };
 
   return (
-    <Box onClick={() => dispatch(btnObject.action())} m={4}>
+    <Box
+      onClick={() => dispatch(btnObject.action())}
+      m={4}
+      cursor="pointer"
+      _hover={{
+        backgroundColor: "rgba(0,0,0,0.2)"
+      }}
+    >
       <Text>{btnObject.label}</Text>
-      <Image src={btnObject.image} alt="Windows" w={48} h={36} />
+      <Image src={btnObject.image} alt="window style" w={36} />
     </Box>
   );
 };
