@@ -72,9 +72,11 @@ const ThemeControls = ({ type, radio }) => {
   return (
     <Box w="80%" m="auto">
       <Text textAlign="center">{text}</Text>
-      {isMobile
-        ? <SliderPicker color={color} onChange={action} />
-        : <ChromePicker disableAlpha color={color} onChange={action} />}
+      {isMobile ? (
+        <SliderPicker color={color} onChange={action} />
+      ) : (
+        <ChromePicker disableAlpha color={color} onChange={action} />
+      )}
     </Box>
   );
 };

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Box } from '@chakra-ui/react';
 import AceEditor from 'react-ace';
 import hljs from 'highlight.js';
-import "ace-builds/webpack-resolver";
+import 'ace-builds/webpack-resolver';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/src-noconflict/mode-abap';
 import 'ace-builds/src-noconflict/mode-assembly_x86';
@@ -77,16 +77,16 @@ const TextArea = () => {
     if (width < 768) {
       setFontSize(15);
     } else {
-      setFontSize(22);
+      setFontSize(17);
     }
   };
 
   useEffect(() => {
     if (code) {
-      let language = (hljs.highlightAuto(code, LANGUAGES));
+      let language = hljs.highlightAuto(code, LANGUAGES);
       if (language.language === 'c' || language.language === 'cpp') {
         setMode('c_cpp');
-      } else if (language.language === 'bash'){
+      } else if (language.language === 'bash') {
         setMode('batchfile');
       } else {
         setMode(language.language);
@@ -103,9 +103,9 @@ const TextArea = () => {
     <Box width="100%" padding={2} sx={sx(theme)} h={height * 0.4}>
       <AceEditor
         onChange={code => setCode(code)}
-        mode={mode ? mode : "javascript"}
-        theme={null}
+        mode={mode ? mode : 'javascript'}
         name="textArea"
+        theme="monokai"
         fontSize={fontSize}
         enableBasicAutocompletion={true}
         enableLiveAutocompletion={true}
@@ -116,7 +116,7 @@ const TextArea = () => {
         style={{
           backgroundColor: 'transparent',
           fontFamily: 'monospace',
-          fontSize:"20px",
+          fontSize: '20px',
           fontWeight: 500,
           color: theme.tokens.text,
         }}

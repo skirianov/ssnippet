@@ -9,14 +9,14 @@ const Window = () => {
   const theme = useSelector(state => state.theme.value);
   return (
     <Box
-      borderRadius={theme.btnsBorderRadius+5}
+      borderRadius={theme.btnsBorderRadius + 5}
       bg={theme.textAreaBg}
       display="flex"
       flexDir="column"
       shadow="dark-lg"
     >
       <Buttons theme={theme} />
-      <Box display="flex" w="100%" bg="transparent">
+      <Box display="flex" w="100%" bg="#15141B">
         <TextArea />
       </Box>
     </Box>
