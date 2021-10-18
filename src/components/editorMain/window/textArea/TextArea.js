@@ -100,7 +100,7 @@ const TextArea = () => {
   }, []);
 
   return (
-    <Box width="100%" padding={2} sx={sx(theme)} h={height * 0.4}>
+    <Box width="100%" padding={2} sx={sx(theme)} minH={height*0.4}>
       <AceEditor
         onChange={code => setCode(code)}
         mode={mode ? mode : "javascript"}
@@ -110,9 +110,9 @@ const TextArea = () => {
         enableBasicAutocompletion={true}
         enableLiveAutocompletion={true}
         width="98%"
-        height="100%"
         placeholder="Your awesome code snippet here <3"
         wrapEnabled={true}
+        maxLines={Infinity}
         style={{
           backgroundColor: 'transparent',
           fontFamily: 'monospace',

@@ -13,7 +13,9 @@ const Window = () => {
       bg={theme.textAreaBg}
       display="flex"
       flexDir="column"
-      shadow="dark-lg"
+      sx={{
+        boxShadow: '0 0 10px 0px rgba(0,0,0,0.5)'
+      }}
     >
       <Buttons theme={theme} />
       <Box display="flex" w="100%" bg="transparent">

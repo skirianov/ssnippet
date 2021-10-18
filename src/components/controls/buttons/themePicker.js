@@ -22,7 +22,7 @@ const ThemePicker = ({ text }) => {
       m={4}
       cursor="pointer"
       _hover={{
-        backgroundColor: "rgba(0,0,0,0.2)"
+        backgroundColor: 'rgba(0,0,0,0.2)',
       }}
     >
       <Text>{btnObject.label}</Text>
