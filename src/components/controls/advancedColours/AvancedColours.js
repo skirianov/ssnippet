@@ -7,7 +7,7 @@ import ColourButton from './colourButton';
 
 const AdvancedColours = ({ type, handleColorPicker, radio, setRadio }) => {
   return (
-    <Box>
+    <Box m="auto" display="flex" justifyContent="center" alignItems="center" flexDir="column">
       <Box my={2} display="flex" flexDir="row">
         <ColourButton
           value="header"

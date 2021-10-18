@@ -66,6 +66,7 @@ const Controls = ({ isMobile }) => {
             <ColourTemplate scheme={colourSchemes["github-dark"]} text="Github Dark" />
             <ColourTemplate scheme={colourSchemes["OneDark"]} text="One Dark" />
             <Button
+              w={32}
               onClick={showAdvancedSettings}
               colorScheme={showAdvanced ? "gray" : "pink"}
               color={showAdvanced ? 'blackAlpha.700' : "white"}

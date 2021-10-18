@@ -41,7 +41,7 @@ const ThemeControls = ({ type, radio }) => {
   };
 
   let text;
-  let color;
+  let color = headerColor;
   let action;
 
   switch (type) {
@@ -69,12 +69,11 @@ const ThemeControls = ({ type, radio }) => {
       return null;
   }
 
+  console.log(color);
   return (
-    <Box w="80%" m="auto">
+    <Box>
       <Text textAlign="center">{text}</Text>
-      {isMobile
-        ? <SliderPicker color={color} onChange={action} />
-        : <ChromePicker disableAlpha color={color} onChange={action} />}
+      <ChromePicker disableAlpha color={color} onChange={color => action(color)} />
     </Box>
   );
 };
