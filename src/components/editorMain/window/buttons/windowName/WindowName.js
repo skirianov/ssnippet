@@ -18,7 +18,7 @@ const WindowName = () => {
       border="none"
       h={[4, 6, 8]}
       fontFamily="monospace"
-      fontSize={{ base: '8px', sm: '12px', md: '14px' }}
+      fontSize={{ base: '10px', sm: '12px', md: '14px' }}
       m="auto"
       textAlign="center"
       bg="transparent"
