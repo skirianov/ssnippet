@@ -8,7 +8,7 @@
       color: theme.lineNumberChar,
     },
     '.ace_gutter-cell': {
-      paddingRight: '10px',
+      paddingLeft: '6px',
     },
     '.ace_print-margin': {
       width: 0,
@@ -41,6 +41,11 @@
     '.ace_type': {
       color: `${theme.tokens.keywords} !important`,
     },
+    '.ace_rparen': {
+      color: `${theme.tokens.activeLine} !important`,
+    },
+    '.ace_lparen': {
+    },
     '.ace_paren': {
       color: `${theme.tokens.selBrWord} !important`,
     },
@@ -60,17 +65,26 @@
       color: `${theme.tokens.function} !important`,
     },
     '.ace_identifier': {
-      color: `${theme.tokens.variable} !important`
+      color: `${theme.tokens.identifier} !important`
     },
     '.ace_parameter': {
       color: `${theme.tokens.parameter} !important`
     },
-    '.ace_numberic': {
+    '.ace_constant': {
+      color: `${theme.tokens.constants} !important`
+    },
+    '.ace_numeric': {
       color: `${theme.tokens.number} !important`
     },
-    '.ace_constant': {
-      color: `${theme.tokens.number} !important`
-    }
+    '.ace_attribute-name': {
+      color: `${theme.tokens.types} !important`
+    },
+    '.ace_color': {
+      color: `${theme.tokens.parameter} !important`
+    },
+    '.ace_variable': {
+      color: `${theme.tokens.variable} !important`
+    },
   }};
 
   export default sx;

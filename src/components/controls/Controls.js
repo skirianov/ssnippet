@@ -10,17 +10,25 @@ import {
   Button,
  } from '@chakra-ui/react';
 
-import RadioInput from './radioInput/radioInput';
 import ThemePicker from './buttons/themePicker';
-import ThemeControls from './themes/colorControl';
+import AdvancedColours from './advancedColours/AvancedColours';
+import { colourSchemes } from './themes/colourSchemes/colourSchemes';
+import ColourTemplate from './themes/colourSchemes/colourTemplate';
 
 const Controls = ({ isMobile }) => {
   const [type, setType] = useState('header');
   const [radio, setRadio] = useState('comments');
+  const [showAdvanced, setShowAdvanced] = useState(false);
+
 
   const handleColorPicker = (e) => {
     setType(e.target.value);
   }
+
+  const showAdvancedSettings = () => {
+    setShowAdvanced(showAdvanced => !showAdvanced);
+    console.log(showAdvanced);
+  };
 
   return (
     <Box display='flex'>
@@ -47,24 +55,24 @@ const Controls = ({ isMobile }) => {
           <h2>
             <AccordionButton bg="rgba(0,0,0,0.5)" _hover fontSize="xl">
               <Box flex="1" textAlign="left">
-                Colours
+                Colour Schemes
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4} display="flex" flexDir="column" justifyContent="space-between">
-            <Box my={2} display="flex" flexDir="row">
-              <Button colorScheme="pink" value="header"  onClick={handleColorPicker} size={isMobile ? "xs" : "md"}  >Header</Button>
-              <Button colorScheme="pink" value="text" mx={1} onClick={handleColorPicker} size={isMobile ? "xs" : "md"}>Text Area</Button>
-              <Button colorScheme="pink" value="bg"  onClick={handleColorPicker} size={isMobile ? "xs" : "md"}>Background</Button>
-              <Button colorScheme="pink" value="tokens" mx={1} onClick={handleColorPicker} size={isMobile ? "xs" : "md"}>Tokens</Button>
-            </Box>
-            <Box display={type === "tokens" ? "block" : "none"}>
-              <RadioInput radio={radio} handler={setRadio} />
-            </Box>
-            <Box>
-              <ThemeControls type={type} radio={radio} />
-            </Box>
+            <ColourTemplate scheme={colourSchemes.terminal} text="Original" />
+            <ColourTemplate scheme={colourSchemes.monokai} text="Monokai" />
+            <ColourTemplate scheme={colourSchemes["github-dark"]} text="Github Dark" />
+            <ColourTemplate scheme={colourSchemes["OneDark"]} text="One Dark" />
+            <Button
+              onClick={showAdvancedSettings}
+              colorScheme={showAdvanced ? "gray" : "pink"}
+              color={showAdvanced ? 'blackAlpha.700' : "white"}
+            >
+              {showAdvanced ? "Hide Advanced" : "Show Advanced"}
+            </Button>
+            {showAdvanced ? <AdvancedColours type={type} handleColorPicker={handleColorPicker} radio={radio} setRadio={setRadio} /> : null}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

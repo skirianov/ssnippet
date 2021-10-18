@@ -18,7 +18,6 @@ import 'ace-builds/src-noconflict/mode-elixir';
 import 'ace-builds/src-noconflict/mode-erlang';
 import 'ace-builds/src-noconflict/mode-fortran';
 import 'ace-builds/src-noconflict/mode-golang';
-import 'ace-builds/src-noconflict/mode-gherkin';
 import 'ace-builds/src-noconflict/mode-haml';
 import 'ace-builds/src-noconflict/mode-haskell';
 import 'ace-builds/src-noconflict/mode-java';
@@ -44,7 +43,6 @@ import 'ace-builds/src-noconflict/mode-r';
 import 'ace-builds/src-noconflict/mode-rust';
 import 'ace-builds/src-noconflict/mode-ruby';
 import 'ace-builds/src-noconflict/mode-sass';
-import 'ace-builds/src-noconflict/mode-scala';
 import 'ace-builds/src-noconflict/mode-scheme';
 import 'ace-builds/src-noconflict/mode-scss';
 import 'ace-builds/src-noconflict/mode-sql';
@@ -69,7 +67,7 @@ const TextArea = () => {
   const [code, setCode] = useState(null);
   const [mode, setMode] = useState('javascript');
   const height = window.innerHeight;
-  const [fontSize, setFontSize] = useState(22);
+  const [fontSize, setFontSize] = useState(18);
 
   const updateDimensions = () => {
     const width = window.innerWidth;
@@ -77,7 +75,7 @@ const TextArea = () => {
     if (width < 768) {
       setFontSize(15);
     } else {
-      setFontSize(22);
+      setFontSize(18);
     }
   };
 
@@ -103,23 +101,24 @@ const TextArea = () => {
     <Box width="100%" padding={2} sx={sx(theme)} minH={height*0.4}>
       <AceEditor
         onChange={code => setCode(code)}
+        debounceChangePeriod={100}
         mode={mode ? mode : "javascript"}
         theme={null}
         name="textArea"
         fontSize={fontSize}
         enableBasicAutocompletion={true}
         enableLiveAutocompletion={true}
-        width="98%"
+        width="96%"
         placeholder="Your awesome code snippet here <3"
         wrapEnabled={true}
         maxLines={Infinity}
         style={{
           backgroundColor: 'transparent',
           fontFamily: 'monospace',
-          fontSize:"20px",
           fontWeight: 500,
           color: theme.tokens.text,
         }}
+        setOptions={{ useWorker: false }}
       />
     </Box>
   );

@@ -11,10 +11,11 @@ const initialState = {
       btnsBorderRadius: 15,
       btnPosition: 'flex-start',
       btnsDirection: 'flex-row',
-      btnsPadding: 2,
+      btnsPadding: 1,
+      color: 'black',
       btnStyle: {
         shape: {
-          width: '1rem',
+          width: 4,
           margin: '0.3rem',
           backgroundColor: {
             close: '#ff605c',
@@ -55,7 +56,7 @@ export const themeSlicer = createSlice({
       btnsBorderRadius: 0,
       btnsPosition: 'flex-start',
       btnsDirection: 'row-reverse',
-      btnsPadding: 2,
+      btnsPadding: 1,
       btnStyle: {
         shape: {
           width: '2.5rem',
@@ -77,7 +78,7 @@ export const themeSlicer = createSlice({
       btnsBorderRadius: 10,
       btnsPosition: 'flex-start',
       btnsDirection: 'row-reverse',
-      btnsPadding: 2,
+      btnsPadding: 1,
       btnStyle: {
         shape: {
           width: '1.4rem',
@@ -96,13 +97,13 @@ export const themeSlicer = createSlice({
     state.value = {
       ...state.value,
       name: 'mac',
-      btnsBorderRadius: 10,
+      btnsBorderRadius: 15,
       btnPosition: 'flex-start',
       btnsDirection: 'flex-row',
-      btnsPadding: 2,
+      btnsPadding: 1,
       btnStyle: {
         shape: {
-          width: '1rem',
+          width: 4,
           margin: '0.3rem',
           backgroundColor: {
             close: '#ff605c',
@@ -137,6 +138,25 @@ export const themeSlicer = createSlice({
       ...state.value,
       tokens: action.payload,
     }
+  },
+  changeName: (state, action) => {
+    state.value = {
+      ...state.value,
+      heading: action.payload,
+    }
+  },
+  changeTheme: (state, action) => {
+    let payload = action.payload;
+
+    state.value = {
+      ...state.value,
+      textAreaBg: payload.textAreaBg,
+      lineNumber: payload.lineNumber,
+      lineNumberChar: payload.lineNumberChar,
+      tokens: payload.tokens,
+      btnsBackgroundColor: payload.btnsBackgroundColor,
+      color: payload.color,
+    }
   }
   }
 })
@@ -148,7 +168,10 @@ export const {
   changeHeaderColor, 
   changeTextAreaColor,
   changeMainColor,
-  changeTokens } = themeSlicer.actions
+  changeTokens,
+  changeName,
+  changeTheme,
+} = themeSlicer.actions
 
 export default themeSlicer.reducer
 

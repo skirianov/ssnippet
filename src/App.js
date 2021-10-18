@@ -5,7 +5,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import Heading from './components/heading/Heading';
 import Main from './components/main/Main';
-import { MdSettingsInputAntenna } from 'react-icons/md';
 
 function App() {
   const [loading, setLoading] = useState(true);

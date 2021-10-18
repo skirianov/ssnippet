@@ -27,8 +27,8 @@ const Button = ({ type, content }) => {
 
   return (
     <Box
-      w={theme.btnStyle.shape.width}
-      h={theme.name === 'mac' ? '1rem' : '1.4rem'}
+      w={{ base: theme.btnStyle.shape.width - 1.5, sm: theme.btnStyle.shape.width - 1, md: theme.btnStyle.shape.width}}
+      h={{ base: 2, sm: 3,  md: (theme.name === 'mac' ? '1rem' : '1.4rem')}}
       m={theme.btnStyle.shape.margin}
       display="flex"
       alignItems="center"
