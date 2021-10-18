@@ -15,8 +15,8 @@ const initialState = {
       color: 'black',
       btnStyle: {
         shape: {
-          width: 4,
-          margin: '0.3rem',
+          width: 3,
+          margin: 1,
           backgroundColor: {
             close: '#ff605c',
             min: '#00ca4e',
