@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@chakra-ui/react';
 import { IoSettingsOutline } from 'react-icons/io5';
 
@@ -17,6 +18,12 @@ const Settings = ({ btnRef, onClick, color }) => {
       Settings
     </Button>
   );
+};
+
+Settings.propTypes = {
+  btnRef: PropTypes.element.isRequired,
+  onClick: PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Settings;

@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Text } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
 const Button = ({ type, content }) => {
-  const theme = useSelector(state => state.theme.value);
+  const theme = useSelector((state) => state.theme.value);
+  let buttonContent = content;
 
   if (theme.name === 'mac') {
-    content = null;
+    buttonContent = null;
   }
 
   let bgColor;
@@ -42,10 +44,15 @@ const Button = ({ type, content }) => {
         }
         color="white"
       >
-        {content}
+        {buttonContent}
       </Text>
     </Box>
   );
+};
+
+Button.propTypes = {
+  type: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default Button;

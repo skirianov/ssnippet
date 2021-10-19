@@ -1,11 +1,14 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 
 import RadioInput from './radioInput/radioInput';
 import ThemeControls from '../themes/colourPicker';
-import ColourButton from './colourButton/colourButton.tsx';
+import ColourButton from './colourButton/colourButton';
 
-const AdvancedColours = ({ type, handleColorPicker, radio, setRadio }) => {
+const AdvancedColours = ({
+  type, handleColorPicker, radio, setRadio,
+}) => {
   return (
     <Box m="auto" display="flex" justifyContent="center" alignItems="center" flexDir="column">
       <Box my={2} display="flex" flexDir="row">
@@ -38,6 +41,13 @@ const AdvancedColours = ({ type, handleColorPicker, radio, setRadio }) => {
       </Box>
     </Box>
   );
+};
+
+AdvancedColours.propTypes = {
+  type: PropTypes.string.isRequired,
+  handleColorPicker: PropTypes.func.isRequired,
+  radio: PropTypes.string.isRequired,
+  setRadio: PropTypes.func.isRequired,
 };
 
 export default AdvancedColours;

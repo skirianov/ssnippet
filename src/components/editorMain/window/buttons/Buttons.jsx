@@ -1,8 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '@chakra-ui/react';
-import { MdMinimize } from 'react-icons/md';
-import { MdOutlineCropSquare } from 'react-icons/md';
-import { MdOutlineClose } from 'react-icons/md';
+import { MdMinimize, MdOutlineCropSquare, MdOutlineClose } from 'react-icons/md';
 
 import Button from './button/Button';
 import WindowName from './windowName/WindowName';
@@ -33,6 +32,16 @@ const Buttons = ({ theme }) => {
       <WindowName />
     </Box>
   );
+};
+
+Buttons.propTypes = {
+  theme: PropTypes.shape({
+    btnsPosition: PropTypes.string.isRequired,
+    btnsDirection: PropTypes.string.isRequired,
+    btnsBackgroundColor: PropTypes.string.isRequired,
+    btnsBorderRadius: PropTypes.string.isRequired,
+    btnsPadding: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Buttons;

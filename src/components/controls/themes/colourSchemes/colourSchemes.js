@@ -1,4 +1,4 @@
-export const colourSchemes = {
+const colourSchemes = {
   terminal: {
     textAreaBg: 'black',
     lineNumber: 'rgba(0,0,0,0.1)',
@@ -44,7 +44,7 @@ export const colourSchemes = {
       identifier: '#5a32a3',
     },
   },
-  "github-dark": {
+  'github-dark': {
     textAreaBg: '#1f2428',
     lineNumber: 'rgba(255,255,255,0.1)',
     lineNumberChar: '#e1e4e8',
@@ -69,7 +69,7 @@ export const colourSchemes = {
       identifier: '#e36209',
     },
   },
-  "OneDark": {
+  OneDark: {
     textAreaBg: '#23272e',
     lineNumber: 'rgba(255,255,255,0.1)',
     lineNumberChar: '#e1e4e8',
@@ -95,3 +95,5 @@ export const colourSchemes = {
     },
   },
 };
+
+export default colourSchemes;

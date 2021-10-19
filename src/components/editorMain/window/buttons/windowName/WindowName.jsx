@@ -4,9 +4,9 @@ import { Input } from '@chakra-ui/react';
 
 const WindowName = () => {
   const [name, setName] = useState('ssnippet name...');
-  const color = useSelector(state => state.theme.value.color);
+  const color = useSelector((state) => state.theme.value.color);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setName(event.target.value);
   };
 

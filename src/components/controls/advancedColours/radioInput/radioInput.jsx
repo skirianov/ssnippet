@@ -1,10 +1,10 @@
 import React from 'react';
-import { Radio, RadioGroup, Stack } from "@chakra-ui/react"
+import PropTypes from 'prop-types';
+import { Radio, RadioGroup, Stack } from '@chakra-ui/react';
 
-const RadioInput = ({radio, handler}) => {
-
+const RadioInput = ({ radio, handler }) => {
   return (
-    <RadioGroup onChange={value => handler(value)} value={radio}>
+    <RadioGroup onChange={(value) => { return handler(value); }} value={radio}>
       <Stack direction="column">
         <Radio value="comment">Comments</Radio>
         <Radio value="keywords">Keywords</Radio>
@@ -16,7 +16,12 @@ const RadioInput = ({radio, handler}) => {
         <Radio value="number">Numbers</Radio>
       </Stack>
     </RadioGroup>
-  )
-}
+  );
+};
+
+RadioInput.propTypes = {
+  radio: PropTypes.string.isRequired,
+  handler: PropTypes.func.isRequired,
+};
 
 export default RadioInput;

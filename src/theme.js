@@ -6,8 +6,8 @@ const config = {
   fonts: {
     heading: 'Roboto',
     body: 'Open Sans',
-  }
-}
+  },
+};
 
 const theme = extendTheme({ config });
 

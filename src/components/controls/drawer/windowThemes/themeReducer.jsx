@@ -49,8 +49,9 @@ export const themeSlicer = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    changeToWin: state => {
-      state.value = {
+    changeToWin: (state) => {
+      const newState = state;
+      newState.value = {
         ...state.value,
         name: 'win',
         btnsBorderRadius: 0,
@@ -71,8 +72,9 @@ export const themeSlicer = createSlice({
         },
       };
     },
-    changeToLin: state => {
-      state.value = {
+    changeToLin: (state) => {
+      const newState = state;
+      newState.value = {
         ...state.value,
         name: 'lin',
         btnsBorderRadius: 10,
@@ -93,8 +95,9 @@ export const themeSlicer = createSlice({
         },
       };
     },
-    changeToMac: state => {
-      state.value = {
+    changeToMac: (state) => {
+      const newState = state;
+      newState.value = {
         ...state.value,
         name: 'mac',
         btnsBorderRadius: 15,
@@ -116,39 +119,45 @@ export const themeSlicer = createSlice({
       };
     },
     changeHeaderColor: (state, action) => {
-      state.value = {
+      const newState = state;
+      newState.value = {
         ...state.value,
         btnsBackgroundColor: action.payload,
       };
     },
     changeTextAreaColor: (state, action) => {
-      state.value = {
+      const newState = state;
+      newState.value = {
         ...state.value,
         textAreaBg: action.payload,
       };
     },
     changeMainColor: (state, action) => {
-      state.value = {
+      const newState = state;
+      newState.value = {
         ...state.value,
         mainBgColor: action.payload,
       };
     },
     changeTokens: (state, action) => {
-      state.value = {
+      const newState = state;
+      newState.value = {
         ...state.value,
         tokens: action.payload,
       };
     },
     changeName: (state, action) => {
-      state.value = {
+      const newState = state;
+      newState.value = {
         ...state.value,
         heading: action.payload,
       };
     },
     changeTheme: (state, action) => {
-      let payload = action.payload;
+      const { payload } = action;
 
-      state.value = {
+      const newState = state;
+      newState.value = {
         ...state.value,
         textAreaBg: payload.textAreaBg,
         lineNumber: payload.lineNumber,
@@ -175,4 +184,4 @@ export const {
 
 export default themeSlicer.reducer;
 
-export const selectTheme = state => state.value;
+export const selectTheme = (state) => state.value;
