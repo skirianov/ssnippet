@@ -25,9 +25,8 @@ const DrawerComponent = ({ isOpen, onOpen, onClose, btnRef }) => {
         closeOnOverlayClick={false}
       >
         <DrawerContent bg="#181d45" color="white">
-          <DrawerCloseButton bg="#d53f8c" color="white" size="lg" _active="#b83280" onClick={() => {onClose(); dispatch(changeState(isOpen))}}/>
+          <DrawerCloseButton bg="#d53f8c" color="white" size="lg"  onClick={() => {onClose(); dispatch(changeState(isOpen))}}/>
           <DrawerHeader>Settings</DrawerHeader>
-
           <DrawerBody>
             <Controls isMobile={isMobile} />
           </DrawerBody>

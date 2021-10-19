@@ -8,11 +8,16 @@ const Download = ({ color }) => {
 
   const toImage = () => {
     setTimeout(() => {
+      let scale = 2;
       let img = document.getElementById('ssnippet')
     domtoimage
       .toBlob(img, {
+        width: img.clientWidth * scale,
+        height: img.clientHeight * scale,
         style: {
-          'margin': 'auto'
+          'margin': 'auto',
+          transform: 'scale('+scale+')',
+          transformOrigin: 'top left'
         }})
       .then(function (blob) {
         saveAs(blob, 'ssnippet');

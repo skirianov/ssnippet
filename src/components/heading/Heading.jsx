@@ -18,9 +18,9 @@ const Header = () => {
         textAlign="center"
         mt={[1, 2, 2]}
         mb={[4]}
-        fontSize={['lg', 'xl', '2xl']}
+        fontSize={['md', 'lg', 'xl']}
       >
-        code it. ssnipp it. sshare!
+        code it. ssnipp it. sshare it!
       </Text>
     </Box>
     </>
