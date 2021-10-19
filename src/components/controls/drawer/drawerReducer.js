@@ -9,13 +9,14 @@ export const drawerSlicer = createSlice({
   initialState,
   reducers: {
     changeState: (state, action) => {
-      state.value = action.payload;
+      const newState = state;
+      newState.value = action.payload;
     },
-  }
+  },
 });
 
-export const {changeState} = drawerSlicer.actions;
+export const { changeState } = drawerSlicer.actions;
 
 export default drawerSlicer.reducer;
 
-export const selectDrawer = state => state.value;
+export const selectDrawer = (state) => state.value;

@@ -6,5 +6,5 @@ export default configureStore({
   reducer: {
     theme: themeReducer,
     drawer: drawerReducer,
-  }
-})
+  },
+});

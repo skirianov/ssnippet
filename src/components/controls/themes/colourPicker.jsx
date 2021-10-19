@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChromePicker } from 'react-color';
 import { Box, Text } from '@chakra-ui/react';
@@ -11,7 +12,7 @@ import {
 } from '../drawer/windowThemes/themeReducer';
 
 const ThemeControls = ({ type, radio }) => {
-  const theme = useSelector(state => state.theme.value);
+  const theme = useSelector((state) => state.theme.value);
   const [headerColor, setHeaderColor] = useState(theme.btnsBackgroundColor);
   const [textAreaColor, setTextAreaColor] = useState(theme.textAreaBg);
   const [mainBgColor, setMainBgColor] = useState(theme.mainBgColor);
@@ -19,22 +20,22 @@ const ThemeControls = ({ type, radio }) => {
 
   const dispatch = useDispatch();
 
-  const handleHeaderChange = color => {
+  const handleHeaderChange = (color) => {
     setHeaderColor(color.hex);
     dispatch(changeHeaderColor(color.hex));
   };
 
-  const handleTextAreaChange = color => {
+  const handleTextAreaChange = (color) => {
     setTextAreaColor(color.hex);
     dispatch(changeTextAreaColor(color.hex));
   };
 
-  const handleMainBgChange = color => {
+  const handleMainBgChange = (color) => {
     setMainBgColor(color.hex);
     dispatch(changeMainColor(color.hex));
   };
 
-  const handleTokensChange = color => {
+  const handleTokensChange = (color) => {
     setTokens({ ...tokens, [radio]: color.hex });
     dispatch(changeTokens(tokens));
   };
@@ -68,13 +69,17 @@ const ThemeControls = ({ type, radio }) => {
       return null;
   }
 
-  console.log(color);
   return (
     <Box>
       <Text textAlign="center">{text}</Text>
-      <ChromePicker disableAlpha color={color} onChange={color => action(color)} />
+      <ChromePicker disableAlpha color={color} onChange={(userColor) => action(userColor)} />
     </Box>
   );
+};
+
+ThemeControls.propTypes = {
+  type: PropTypes.string.isRequired,
+  radio: PropTypes.string.isRequired,
 };
 
 export default ThemeControls;

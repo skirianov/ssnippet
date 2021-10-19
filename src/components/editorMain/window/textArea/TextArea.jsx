@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Box } from '@chakra-ui/react';
 import AceEditor from 'react-ace';
 import hljs from 'highlight.js';
-import "ace-builds/webpack-resolver";
+import 'ace-builds/webpack-resolver';
 import 'ace-builds/src-noconflict/ext-language_tools';
 // import 'ace-builds/src-noconflict/mode-abap';
 // import 'ace-builds/src-noconflict/mode-assembly_x86';
@@ -60,10 +60,10 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 // import 'ace-builds/src-noconflict/mode-django';
 
 import sx from './selectors';
-import { LANGUAGES } from './LANGUAGES';
+import LANGUAGES from './LANGUAGES';
 
 const TextArea = () => {
-  const theme = useSelector(state => state.theme.value);
+  const theme = useSelector((state) => state.theme.value);
   const [code, setCode] = useState(null);
   const [mode, setMode] = useState('javascript');
   const height = window.innerHeight;
@@ -80,21 +80,17 @@ const TextArea = () => {
   };
 
   useEffect(() => {
-    console.log(mode);
     if (code) {
-      let language = (hljs.highlightAuto(code, LANGUAGES));
+      const language = (hljs.highlightAuto(code, LANGUAGES));
       if (language.language === 'c' || language.language === 'cpp') {
         setMode('c_cpp');
-      } else if (language.language === 'bash'){
+      } else if (language.language === 'bash') {
         setMode('batchfile');
       } else if (language.language === 'arm') {
         setMode('assembly_x86');
       } else {
         setMode(language.language);
       }
-    }
-    if (mode) {
-      import(`ace-builds/src-noconflict/mode-${mode}`);
     }
   }, [code, mode]);
 
@@ -104,19 +100,19 @@ const TextArea = () => {
   }, []);
 
   return (
-    <Box width="100%" padding={2} sx={sx(theme)} minH={height*0.4}>
+    <Box width="100%" padding={2} sx={sx(theme)} minH={height * 0.4}>
       <AceEditor
-        onChange={code => setCode(code)}
+        onChange={(inputCode) => setCode(inputCode)}
         debounceChangePeriod={100}
-        mode={mode ? mode : "javascript"}
+        mode={mode || 'javascript'}
         theme={null}
         name="textArea"
         fontSize={fontSize}
-        enableBasicAutocompletion={true}
-        enableLiveAutocompletion={true}
+        enableBasicAutocompletion
+        enableLiveAutocompletion
         width="96%"
         placeholder="Your awesome code snippet here <3"
-        wrapEnabled={true}
+        wrapEnabled
         maxLines={Infinity}
         style={{
           backgroundColor: 'transparent',

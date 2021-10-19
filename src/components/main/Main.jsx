@@ -10,13 +10,12 @@ const Main = () => {
   const btnRef = React.useRef();
 
   return (
-    <Box
-    >
+    <Box>
       <EditorMain />
       <ActionButtons isOpen={isOpen} onOpen={onOpen} btnRef={btnRef} />
       <DrawerComponent isOpen={isOpen} onOpen={onOpen} onClose={onClose} btnRef={btnRef} />
     </Box>
-  )
-}
+  );
+};
 
 export default Main;
