@@ -2,7 +2,7 @@ import { ColorModeScript, ChakraProvider } from '@chakra-ui/react';
 import { Provider } from 'react-redux';
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import App from './App';
 import store from './store';
 import theme from './theme';
 import './index.css';

@@ -18,6 +18,6 @@ module.exports = {
     'react',
   ],
   rules: {
-    'arrow-body-style': ['error', 'as-needed'],
+    'arrow-body-style': ['off','as-needed'],
   },
 };
