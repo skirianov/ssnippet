@@ -1,4 +1,6 @@
-# ssnippet - simple code snippets for you <3
+# ssnippet - code snippets you love
+
+[code-snippet](./src/assets/snippet.png)
 
 Made to bring you the maximum customisation for your code snippets!
 
@@ -12,4 +14,4 @@ Run locally **npm start**
 
 # Project Roadmap 
 
-[!GitKraken](shorturl.at/chpOT)
+[GitKraken](shorturl.at/chpOT)
