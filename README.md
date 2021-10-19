@@ -1,6 +1,6 @@
 # ssnippet - code snippets you love
 
-[code-snippet](./src/assets/snippet.png)
+![code-snippet](/src/assets/snippet.png)
 
 Made to bring you the maximum customisation for your code snippets!
 
