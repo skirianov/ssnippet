@@ -2,15 +2,27 @@
 
 ![code-snippet](/src/assets/snippet.png)
 
-Made to bring you the maximum customisation for your code snippets!
+You wonder how to create a code snippet for your blog, Twitter post or any other resource? 
 
-## Build in progress -_-
+There are services available for that, but they lack customisation! Would you like to be able to set themes as you want it and not as it was designed by someone?
 
-# Installation
+[ssnippet](ssnippet.app) is here for you! Predefined themes, full customisation and many more! 
 
-Clone repo and run **npm install**
+**code it, ssnipp it, sshare  it**
+
+**Build in progress**
+
+# How to run locally?
+
+Clone repo and run in your local folder **npm install**
 
 Run locally **npm start**
+
+# Contribution Guidelines
+
+It is completely open source and you are all welcome to contribute to it! 
+
+***contribution guidelines are coming soon***
 
 # Project Roadmap 
 
