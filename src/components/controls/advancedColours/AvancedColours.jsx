@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-import RadioInput from '../radioInput/radioInput';
+import RadioInput from './radioInput/radioInput';
 import ThemeControls from '../themes/colourPicker';
-import ColourButton from './colourButton';
+import ColourButton from './colourButton/colourButton.tsx';
 
 const AdvancedColours = ({ type, handleColorPicker, radio, setRadio }) => {
   return (

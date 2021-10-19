@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 
-import { changeTheme } from '../../buttons/themeReducer';
+import { changeTheme } from '../../drawer/windowThemes/themeReducer';
 
 const ColourTemplate = ({scheme, text}) => {
 

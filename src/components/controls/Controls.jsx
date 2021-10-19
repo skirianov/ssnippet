@@ -8,9 +8,9 @@ import {
   AccordionPanel,
   Text,
   Button,
- } from '@chakra-ui/react';
+} from '@chakra-ui/react';
 
-import ThemePicker from './buttons/themePicker';
+import ThemePicker from './drawer/windowThemes/themePicker';
 import AdvancedColours from './advancedColours/AvancedColours';
 import { colourSchemes } from './themes/colourSchemes/colourSchemes';
 import ColourTemplate from './themes/colourSchemes/colourTemplate';

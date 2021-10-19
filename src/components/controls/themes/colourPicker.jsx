@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ChromePicker, SliderPicker } from 'react-color';
+import { ChromePicker } from 'react-color';
 import { Box, Text } from '@chakra-ui/react';
-import { isMobile } from 'react-device-detect';
 
 import {
   changeHeaderColor,
   changeTextAreaColor,
   changeMainColor,
   changeTokens,
-} from '../buttons/themeReducer';
+} from '../drawer/windowThemes/themeReducer';
 
 const ThemeControls = ({ type, radio }) => {
   const theme = useSelector(state => state.theme.value);

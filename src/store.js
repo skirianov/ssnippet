@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import themeReducer from './components/controls/buttons/themeReducer';
+import themeReducer from './components/controls/drawer/windowThemes/themeReducer';
 import drawerReducer from './components/controls/drawer/drawerReducer';
 
 export default configureStore({

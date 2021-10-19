@@ -13,7 +13,6 @@ export const colourSchemes = {
       constants: '#AE81FF',
       function: '#66D9EF',
       types: '#66D9EF',
-
       color: 'black',
       operator: 'deeppink',
       parameter: '#E78C45',

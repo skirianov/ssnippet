@@ -1,7 +1,7 @@
 import React from 'react';
-import Win from '../../../assets/windows.png';
-import Mac from '../../../assets/mac.png';
-import Lin from '../../../assets/linux.png';
+import Win from '../../../../assets/windows.png';
+import Mac from '../../../../assets/mac.png';
+import Lin from '../../../../assets/linux.png';
 import { Box, Image, Text } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { changeToLin, changeToMac, changeToWin } from './themeReducer';
