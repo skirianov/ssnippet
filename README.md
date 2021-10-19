@@ -6,6 +6,10 @@ Made to bring you the maximum customisation for your code snippets!
 
 # Installation
 
-Clone repo and run **yarn install**
+Clone repo and run **npm install**
 
 Run locally **npm start**
+
+# Project Roadmap 
+
+[!GitKraken](shorturl.at/chpOT)
