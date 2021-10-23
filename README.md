@@ -6,7 +6,7 @@ You wonder how to create a code snippet for your blog, Twitter post or any other
 
 There are services available for that, but they lack customisation! Would you like to be able to set themes as you want it and not as it was designed by someone?
 
-[ssnippet](ssnippet.app) is here for you! Predefined themes, full customisation and many more! 
+[ssnippet](https://www.ssnippet.app/) is here for you! Predefined themes, full customisation and many more! 
 
 **code it, ssnipp it, sshare  it**
 
