@@ -69,7 +69,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "netlify-cli": "^6.10.3",
+    "netlify-cli": "^6.14.21",
     "typescript": "^4.4.4"
   }
 }
