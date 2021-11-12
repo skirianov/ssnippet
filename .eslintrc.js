@@ -19,5 +19,6 @@ module.exports = {
   ],
   rules: {
     'arrow-body-style': ['off','as-needed'],
+    'linebreak-style': ["error", "windows"]
   },
 };

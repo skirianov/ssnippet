@@ -32,21 +32,19 @@ const sx = (theme) => ({
     color: `${theme.tokens.keywords} !important`,
   },
   '.ace_meta': {
-    color: `${theme.tokens.keywords} !important`,
+    color: `${theme.tokens.meta} !important`,
   },
   '.ace_storage': {
     color: `${theme.tokens.keywords} !important`,
   },
   '.ace_type': {
-    color: `${theme.tokens.keywords} !important`,
+    color: `${theme.tokens.types} !important`,
   },
   '.ace_rparen': {
     color: `${theme.tokens.activeLine} !important`,
   },
-  '.ace_lparen': {
-  },
   '.ace_paren': {
-    color: `${theme.tokens.selBrWord} !important`,
+    color: `${theme.tokens.bracket} !important`,
   },
   '.ace_comment': {
     color: `${theme.tokens.comment} !important`,
@@ -76,7 +74,7 @@ const sx = (theme) => ({
     color: `${theme.tokens.number} !important`,
   },
   '.ace_attribute-name': {
-    color: `${theme.tokens.types} !important`,
+    color: `${theme.tokens.attribute} !important`,
   },
   '.ace_color': {
     color: `${theme.tokens.parameter} !important`,

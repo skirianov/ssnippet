@@ -1,53 +1,54 @@
-import React from 'react';
-import { Box } from '@chakra-ui/react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { VStack, Flex } from '@chakra-ui/react';
 
-import RadioInput from './radioInput/radioInput';
-import ThemeControls from '../themes/colourPicker';
+import ColourPicker from '../colorControl/colourPicker';
 import ColourButton from './colourButton/colourButton';
+import RadioInput from './radioInput/radioInput';
 
-const AdvancedColours = ({
-  type, handleColorPicker, radio, setRadio,
-}) => {
+const AdvancedColours = () => {
+  const [type, setType] = useState('header');
+  const [radio, setRadio] = useState('comment');
+
+  const handleType = (e) => {
+    setType(e.target.value);
+  };
+
   return (
-    <Box m="auto" display="flex" justifyContent="center" alignItems="center" flexDir="column">
-      <Box my={2} display="flex" flexDir="row">
+    <Flex h="full" flexDir="column" justifyContent="space-between">
+      <VStack justifyContent="start">
         <ColourButton
           value="header"
-          onClick={handleColorPicker}
           text="Header"
+          onClick={handleType}
+          type={type}
         />
         <ColourButton
           value="text"
-          onClick={handleColorPicker}
           text="Text Area"
+          onClick={handleType}
+          type={type}
         />
         <ColourButton
           value="bg"
-          onClick={handleColorPicker}
           text="Background"
+          onClick={handleType}
+          type={type}
         />
         <ColourButton
           value="tokens"
-          onClick={handleColorPicker}
           text="Tokens"
+          onClick={handleType}
+          type={type}
         />
-      </Box>
-      <Box display={type === 'tokens' ? 'block' : 'none'}>
-        <RadioInput radio={radio} handler={setRadio} />
-      </Box>
-      <Box>
-        <ThemeControls type={type} radio={radio} />
-      </Box>
-    </Box>
+      </VStack>
+      <Flex>
+        {type === 'tokens' ? <RadioInput radio={radio} handler={setRadio} /> : null}
+      </Flex>
+      <Flex justifyContent="center">
+        <ColourPicker type={type} radio={radio} />
+      </Flex>
+    </Flex>
   );
-};
-
-AdvancedColours.propTypes = {
-  type: PropTypes.string.isRequired,
-  handleColorPicker: PropTypes.func.isRequired,
-  radio: PropTypes.string.isRequired,
-  setRadio: PropTypes.func.isRequired,
 };
 
 export default AdvancedColours;

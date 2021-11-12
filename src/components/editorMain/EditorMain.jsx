@@ -7,27 +7,24 @@ import Window from './window/Window';
 
 const EditorMain = () => {
   const theme = useSelector((state) => state.theme.value);
-  const drawer = useSelector((state) => state.drawer.value);
 
   const mobileWidth = isMobile
     ? {
       base: '90%', md: '75%', lg: '65%', '2xl': '55%',
     }
-    : { base: '90%', md: '35%', xl: '45%' };
+    : { base: '90%', md: '75%', xl: '40%' };
 
   const mobileMargin = isMobile
-    ? 'auto'
-    : { base: 'auto', md: '8%', xl: '12%' };
+    ? { base: 'auto', md: '18%', xl: '20%' }
+    : 'auto';
 
   return (
     <Box
       id="ssnippet"
       bg={theme.mainBgColor}
-      w={drawer ? {
-        base: '90%', md: '75%', lg: '65%', '2xl': '55%',
-      } : mobileWidth}
-      mx={drawer ? 'auto' : mobileMargin}
-      p={[4, 8, 12]}
+      w={mobileWidth}
+      mx={mobileMargin}
+      p={[4, 8, 12, 16]}
       transition="width 500ms"
     >
       <Window />

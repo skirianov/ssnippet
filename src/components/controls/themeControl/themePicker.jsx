@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import Win from '../../../../assets/windows.png';
-import Mac from '../../../../assets/mac.png';
-import Lin from '../../../../assets/linux.png';
-import { changeToLin, changeToMac, changeToWin } from './themeReducer';
+import Win from '../../../assets/windows.png';
+import Mac from '../../../assets/mac.png';
+import Lin from '../../../assets/linux.png';
+import { changeToLin, changeToMac, changeToWin } from '../themeReducer';
 
 const ThemePicker = ({ text }) => {
   const dispatch = useDispatch();
@@ -21,14 +21,15 @@ const ThemePicker = ({ text }) => {
   return (
     <Box
       onClick={() => dispatch(btnObject.action())}
-      m={4}
+      border="1px solid darkgray"
       cursor="pointer"
       _hover={{
-        backgroundColor: 'rgba(0,0,0,0.2)',
+        transform: 'scale(1.05)',
+        border: '2px solid #f472b6',
+        transition: 'transform 0.3s',
       }}
     >
-      <Text>{btnObject.label}</Text>
-      <Image src={btnObject.image} alt="window style" w={36} />
+      <Image src={btnObject.image} alt="window style" w={28} />
     </Box>
   );
 };

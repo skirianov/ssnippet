@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   value: {
     name: 'mac',
-    mainBgColor: 'lightblue',
+    mainBgColor: '#F472B6',
     textAreaBg: 'black',
     lineNumber: 'rgba(0,0,0,0.1)',
     lineNumberChar: 'steelblue',
-    btnsBackgroundColor: 'linear-gradient(#e5e5e5, #cecece)',
-    btnsBorderRadius: 15,
+    btnsBackgroundColor: '#dbdbdb',
+    btnsBorderRadius: 10,
     btnPosition: 'flex-start',
     btnsDirection: 'flex-row',
     btnsPadding: 1,
@@ -100,7 +100,7 @@ export const themeSlicer = createSlice({
       newState.value = {
         ...state.value,
         name: 'mac',
-        btnsBorderRadius: 15,
+        btnsBorderRadius: 10,
         btnPosition: 'flex-start',
         btnsDirection: 'flex-row',
         btnsPadding: 1,

@@ -1,19 +1,28 @@
 import React from 'react';
-import { Box, useDisclosure } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { isMobile } from 'react-device-detect';
 
 import EditorMain from '../editorMain/EditorMain';
 import ActionButtons from '../share/ActionButtons';
-import DrawerComponent from '../controls/drawer/Drawer';
+import DrawerComponent from '../controls/drawerThemes/Drawer';
+import ThemeControl from '../controls/themeControl/themeControl';
+import DrawerColor from '../controls/drawerColors/DrawerColors';
+import DrawerMobile from '../controls/drawerMobile/drawerMobile';
 
 const Main = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
-
   return (
-    <Box>
+    <Box display="flex" flexDir="column" justifyContent="center">
+      {isMobile ? null : <ThemeControl />}
       <EditorMain />
-      <ActionButtons isOpen={isOpen} onOpen={onOpen} btnRef={btnRef} />
-      <DrawerComponent isOpen={isOpen} onOpen={onOpen} onClose={onClose} btnRef={btnRef} />
+      {isMobile
+        ? <DrawerMobile />
+        : (
+          <>
+            <DrawerComponent />
+            <DrawerColor />
+          </>
+        )}
+      <ActionButtons />
     </Box>
   );
 };
